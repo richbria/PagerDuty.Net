@@ -1,9 +1,7 @@
 ﻿using RestSharp;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PagerDuty.Net.Enums;
 
 namespace PagerDuty.Net {
     [Serializable()]
@@ -182,8 +180,8 @@ namespace PagerDuty.Net {
                 req.AddParameter("fields", filters.fields);
             }
 
-            if (!String.IsNullOrEmpty(filters.status)) {
-                req.AddParameter("status", filters.status);
+            if (filters.status != Status.none) {
+                req.AddParameter("status", filters.status.ToString());
             }
 
             if (!String.IsNullOrEmpty(filters.incident_key)) {
