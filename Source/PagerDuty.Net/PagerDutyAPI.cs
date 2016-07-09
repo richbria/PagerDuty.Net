@@ -183,7 +183,7 @@ namespace PagerDuty.Net {
             }
 
             if (!String.IsNullOrEmpty(filters.status)) {
-                req.AddParameter("status", filters.fields);
+                req.AddParameter("status", filters.status);
             }
 
             if (!String.IsNullOrEmpty(filters.incident_key)) {
